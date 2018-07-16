@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./lib/index.script.js"></script>
+    <style>
+        .box {
+            margin-top: 50px;
+        }
+
+        .box .img {
+            max-height: 300px;
+            float: left;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+<input type="file" id="file">
+<div class="box">
+    <div class="img">
+        压缩前:<img src="" id="before"/>
+    </div>
+    <div class="img">
+        压缩后:<img src="" id="after"/>
+    </div>
+
+</div>
+</body>
+<script src="index.js"></script>
+<script>
+    document.getElementById('file').onchange = function (e) {
+        photoCompress(this.files[0], {}, function (base64) {
+            document.getElementById('after').src = base64
+        });
+        document.getElementById('before').src = window.URL.createObjectURL(this.files[0]);
+    };
+</script>
+</html>

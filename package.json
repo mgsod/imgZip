@@ -1,0 +1,16 @@
+{
+  "name": "imgzip",
+  "version": "1.0.0",
+  "description": "compress img",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "compress",
+    "img",
+    "zip"
+  ],
+  "author": "mgso",
+  "license": "ISC"
+}
