@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="./lib/index.script.js"></script>
+    <script src="./lib/index.js"></script>
     <style>
         .box {
             margin-top: 50px;
@@ -28,10 +28,10 @@
 
 </div>
 </body>
-<script src="index.js"></script>
+
 <script>
     document.getElementById('file').onchange = function (e) {
-        photoCompress(this.files[0], {}, function (base64) {
+        zipImg.photoCompress(this.files[0], {}, function (base64) {
             document.getElementById('after').src = base64
         });
         document.getElementById('before').src = window.URL.createObjectURL(this.files[0]);
