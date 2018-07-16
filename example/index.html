@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="./lib/index.js"></script>
+    <script src="/dist/index.min.js"></script>
     <style>
         .box {
             margin-top: 50px;
@@ -30,8 +30,9 @@
 </body>
 
 <script>
+    console.log(imgZip)
     document.getElementById('file').onchange = function (e) {
-        zipImg.photoCompress(this.files[0], {}, function (base64) {
+        imgZip.photoCompress(this.files[0], {}, function (base64) {
             document.getElementById('after').src = base64
         });
         document.getElementById('before').src = window.URL.createObjectURL(this.files[0]);

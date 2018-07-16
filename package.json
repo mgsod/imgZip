@@ -1,10 +1,11 @@
 {
   "name": "imgzip",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "compress img",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
   },
   "keywords": [
     "compress",
@@ -12,5 +13,11 @@
     "zip"
   ],
   "author": "mgso",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.16.0"
+  },
+  "devDependencies": {
+    "uglifyjs-webpack-plugin": "^1.2.7"
+  }
 }

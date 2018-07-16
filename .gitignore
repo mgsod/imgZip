@@ -1,8 +1,5 @@
 .DS_Store
 node_modules/
-/docs/.vuepress/dist
-/dist/
-cms*
 *.zip
 npm-debug.log*
 yarn-debug.log*
