@@ -10,7 +10,7 @@
 
 ### Demo示例
 
-[图片压缩](https://unpkg.com/imgzip@1.0.4/example/) 
+[图片压缩](https://unpkg.com/imgzip@1.0.4/example/index.html) 
 
 ### 安装
 
