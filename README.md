@@ -1,5 +1,13 @@
 # imgZip
  图片压缩插件
+ 
+<a href="https://www.npmjs.org/package/imgzip">
+   <img src="https://img.shields.io/npm/v/imgzip.svg">
+</a>
+<a href="https://npmcharts.com/compare/imgzip?minimal=true">
+   <img src="http://img.shields.io/npm/dm/imgzip.svg">
+</a>
+
 ### Demo示例
 
 [图片压缩](https://unpkg.com/imgzip@1.0.4/example/) 
