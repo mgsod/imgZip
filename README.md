@@ -19,9 +19,9 @@
  npm i imgzip
 ```
 
-#### cnd
+#### script
 ````
-<script src="https://unpkg.com/imgzip@1.0.4/dist/index.min.js"></script>
+<script src="https://unpkg.com/imgzip@1.0.7/dist/index.min.js"></script>
 ````
 `@1.0.4`为固定版本,可自行调整
 
