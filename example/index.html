@@ -5,36 +5,81 @@
     <title>Title</title>
     <script src="../dist/index.min.js"></script>
     <style>
-        .box {
-            margin-top: 50px;
+        * {
+            margin: 0;
+            padding: 0;
         }
 
-        .box .img {
-            max-height: 300px;
-            float: left;
-            margin-right: 15px;
+        .box {
+            padding: 20px;
+
+        }
+
+        .img-box {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .img {
+            flex: 1;
+            padding: 2px;
+        }
+
+        .img img {
+            width: 100%;
+            padding: 5px;
+            max-height: 500px;
+            object-fit: contain;
         }
     </style>
 </head>
 <body>
-<input type="file" id="file">
+
 <div class="box">
-    <div class="img">
-        压缩前:<img src="" id="before"/>
+    <div>
+        <input type="file" id="file">
+        <input type="number" placeholder="quality(0-1),default:0.7" id="quality">
+
+        <input type="button" value="compress" id="compress">
     </div>
-    <div class="img">
-        压缩后:<img src="" id="after"/>
+    <div class="img-box">
+        <div class="img">
+            before<img src="" id="before"/>
+        </div>
+        <div class="img">
+            after<img src="" id="after"/>
+        </div>
+
     </div>
 
 </div>
 </body>
 
 <script>
-    document.getElementById('file').onchange = function (e) {
-        imgZip.photoCompress(this.files[0], {}, function (base64) {
-            document.getElementById('after').src = base64
-        });
-        document.getElementById('before').src = window.URL.createObjectURL(this.files[0]);
+    let file,
+        inputFile = document.getElementById('file'),
+        buttonCompress = document.getElementById('compress'),
+        after = document.getElementById('after'),
+        before = document.getElementById('before'),
+        quality = document.getElementById('quality')
+
+
+    inputFile.onchange = function (e) {
+        file = this.files[0];
+        this.value = '';
+        render()
+
     };
+    buttonCompress.onclick = function(){
+        render()
+    };
+
+    function render() {
+        imgZip.photoCompress(file, {quality: Number(quality.value)}, function (base64) {
+            after.src = base64
+        });
+        before.src = window.URL.createObjectURL(file);
+    }
+
 </script>
 </html>

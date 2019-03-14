@@ -10,7 +10,7 @@
 
 ### Demo示例
 
-[图片压缩](https://unpkg.com/imgzip@1.0.4/example/index.html) 
+[图片压缩](https://unpkg.com/imgzip@1.0.7/example/index.html) 
 
 ### 安装
 
@@ -50,6 +50,7 @@ import imgzip from 'imgzip'
     }
   }
 ```
+
 ### 函数说明
 > photoCompress(图片压缩函数) 无返回值
 
