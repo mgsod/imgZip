@@ -53,7 +53,7 @@ import imgzip from 'imgzip'
 ```
 
 ### 函数说明
-#### photoCompress(图片压缩函数) 无返回值
+* ####photoCompress(图片压缩函数) 无返回值
 
 | 参数 | 说明 | 是否必须 | 默认值 |
 | ------ | ------ | ------ | ------ |
@@ -63,7 +63,7 @@ import imgzip from 'imgzip'
 
 
 
-#### convertBase64UrlToBlob(base64编码转blod流) 
+* ####convertBase64UrlToBlob(base64编码转blod流) 
 
 | 参数 | 说明 | 是否必须 | 默认值 |
 | ------ | ------ | ------ | ------ |
