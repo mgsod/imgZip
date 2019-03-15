@@ -23,11 +23,12 @@
 ````
 <script src="https://unpkg.com/imgzip@1.0.7/dist/index.min.js"></script>
 ````
-`@1.0.4`为固定版本,可自行调整
+`@1.0.7`为固定版本,可自行调整
 
 ### 使用方法
 ```javascript
 import imgzip from 'imgzip'  
+//import {convertBase64UrlToBlob,photoCompress} from 'imgzip'  
   export default {
     name: 'App',
     components: {
@@ -57,7 +58,7 @@ import imgzip from 'imgzip'
 | 参数 | 说明 | 是否必须 | 默认值 |
 | ------ | ------ | ------ | ------ |
 | file | 文件对象 | 是 |  - |
-| options | 压缩参数(宽/高/质量)| 否 | {width:img.width,height:img.width/(img.width/img.height),quality:0.7}|
+| options | 压缩参数(宽/高/质量)| 否 | {width:图片高度,height:图片宽高比,quality:0.7}|
 | callback | 压缩后回调函数,回调参数返回压缩后的base64编码 | 是 |  - |
 
 
