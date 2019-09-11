@@ -31,9 +31,6 @@ import imgzip from 'imgzip'
 //import {convertBase64UrlToBlob,photoCompress} from 'imgzip'  
   export default {
     name: 'App',
-    components: {
-      HelloWorld
-    },
     mounted() {
       //监听选择文件
       document.getElementById('file').onchange = function () {
