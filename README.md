@@ -10,7 +10,7 @@
 
 ### Demo示例
 
-[图片压缩](https://unpkg.com/imgzip@2.0.0/example/index.html) 
+[图片压缩](https://unpkg.com/imgzip@2.0.8/example/index.html) 
 
 ### 安装
 
@@ -21,9 +21,9 @@
 
 #### script
 ````
-<script src="https://unpkg.com/imgzip@2.0.0/dist/index.min.js"></script>
+<script src="https://unpkg.com/imgzip@2.0.8/dist/index.min.js"></script>
 ````
-`@2.0.0`为固定版本,可自行调整
+`@2.0.8`为固定版本,可自行调整
 
 ### 使用方法
 
@@ -56,11 +56,21 @@ import imgzip from 'imgzip'
 
 > @2.x版本后改用class api, 原`photoCompress`函数中传入的`options`参数改为实例化imgzip时传入。
 
+* new imgZip(options)
+
+| 参数 | 说明 | 是否必须 | 默认值 |
+| ------ | ------ | ------ | ------ |
+| options.width | 图片宽度 | 否 | 图片原始宽度 | 
+| options.height | 图片高度 | 否 | 图片原始高度 | 
+| options.quality | 图片质量 | 否 | 0.7 | 
+
+
+
 * photoCompress(图片压缩函数) 无返回值
 
 | 参数 | 说明 | 是否必须 | 默认值 |
 | ------ | ------ | ------ | ------ |
-| file | 文件对象 | 是 |  - ||
+| file | 文件对象(Blod) | 是 |  - ||
 | callback | 压缩后回调函数,回调参数返回压缩后的base64编码 | 是 |  - |
 
 

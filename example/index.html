@@ -50,7 +50,7 @@
 <div class="box">
     <div>
         <input type="file" id="file">
-        <input type="number" placeholder="quality(0-1),default:0.7" id="quality"/>
+        <input type="number" placeholder="quality(0-1)" id="quality"/>
 
         <input type="button" value="compress" id="compress">
     </div>
@@ -93,7 +93,6 @@ buttonCompress.onclick = function() {
 
 function render() {
     let compress = new imgZip({quality: Number(quality.value)});
-    console.log(compress);
     compress.photoCompress(file, function(base64) {
         after.src = base64;
     });
