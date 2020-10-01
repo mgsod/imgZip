@@ -27,38 +27,6 @@
 
 ### 使用方法
 
-#### 1.x版本(不支持ts)
-
-```javascript
-import imgzip from 'imgzip'  
-  export default {
-    name: 'App',
-    mounted() {
-      //监听选择文件
-      document.getElementById('file').onchange = function () {
-        //调用图片压缩
-        imgzip.photoCompress(this.files[0], {}, function (base64) {
-          //document.getElementById('img').src = base64  //预览图片          
-          //转blod流上传
-          let blod =  imgzip.convertBase64UrlToBlob(base64); 
-          let formData = new FormData();
-          formData.append("file", blod, "file_"+Date.parse(new Date())+".jpg"); // 文件对象
-          //上传操作....
-        })
-      }
-    }
-  }
-```
-### 函数说明
-* photoCompress(图片压缩函数) :void
-
-| 参数 | 说明 | 是否必须 | 默认值 |
-| ------ | ------ | ------ | ------ |
-| file | 文件对象(Blod) | 是 |  - |
-| options | 压缩参数(宽/高/质量)| 否 | {width:图片高度,height:图片宽高比,quality:0.7}|
-| callback | 压缩后回调函数,回调参数返回压缩后的base64编码 | 是 |  - |
-
-
 #### 2.x版本（支持ts）
 
 ```javascript
@@ -88,7 +56,6 @@ import imgzip from 'imgzip'
 
 > @2.x版本后改用class api, 原`photoCompress`函数中传入的`options`参数改为实例化imgzip时传入。
 
-
 * photoCompress(图片压缩函数) 无返回值
 
 | 参数 | 说明 | 是否必须 | 默认值 |
@@ -96,6 +63,40 @@ import imgzip from 'imgzip'
 | file | 文件对象 | 是 |  - ||
 | callback | 压缩后回调函数,回调参数返回压缩后的base64编码 | 是 |  - |
 
+
+
+
+
+#### 1.x版本(不支持ts)
+
+```javascript
+import imgzip from 'imgzip'  
+  export default {
+    name: 'App',
+    mounted() {
+      //监听选择文件
+      document.getElementById('file').onchange = function () {
+        //调用图片压缩
+        imgzip.photoCompress(this.files[0], {}, function (base64) {
+          //document.getElementById('img').src = base64  //预览图片          
+          //转blod流上传
+          let blod =  imgzip.convertBase64UrlToBlob(base64); 
+          let formData = new FormData();
+          formData.append("file", blod, "file_"+Date.parse(new Date())+".jpg"); // 文件对象
+          //上传操作....
+        })
+      }
+    }
+  }
+```
+### 函数说明
+* photoCompress(图片压缩函数) 
+
+| 参数 | 说明 | 是否必须 | 默认值 |
+| ------ | ------ | ------ | ------ |
+| file | 文件对象(Blod) | 是 |  - |
+| options | 压缩参数(宽/高/质量)| 否 | {width:图片高度,height:图片宽高比,quality:0.7}|
+| callback | 压缩后回调函数,回调参数返回压缩后的base64编码 | 是 |  - |
 
 
 

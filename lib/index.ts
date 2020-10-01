@@ -7,8 +7,21 @@ type compressOptions = {
 
 class Imgzip {
     private options: compressOptions;
-    constructor(options: compressOptions) {
-        this.options = options
+
+    constructor(options?: compressOptions) {
+        if (options) {
+            let {quality = 0.7, width, height} = options;
+            this.options = {
+                quality: quality,
+                width: width,
+                height: height
+            }
+        } else {
+            this.options = {
+                quality: 0.7
+            }
+        }
+
     }
 
     /**
@@ -26,7 +39,6 @@ class Imgzip {
                 scale = w as number / h;
             w = this.options.width || w;
             h = this.options.height || (w / scale); //默认等比压缩
-            let quality = 0.7;  // 默认图片质量为0.7
             //生成canvas
             let canvas = document.createElement('canvas');
             let ctx = canvas.getContext('2d');
@@ -37,21 +49,16 @@ class Imgzip {
             anh.nodeValue = h.toString();
             canvas.setAttributeNode(anw);
             canvas.setAttributeNode(anh);
-
             ctx?.drawImage(that, 0, 0, w, h);
-            // 图像质量
-            if (this.options.quality && this.options.quality <= 1 && this.options.quality > 0) {
-                quality = this.options.quality;
-            }
             // quality值越小，所绘制出的图像越模糊
-            let base64 = canvas.toDataURL('image/jpeg', quality);
+            let base64 = canvas.toDataURL('image/jpeg', this.options.quality);
             // 回调函数返回base64的值
             callback && callback(base64);
         }
     }
 
     /**
-     * @param file 文件对
+     * @param file 文件对象
      * @param callback
      */
     photoCompress(file: Blob, callback: Function) {
@@ -87,3 +94,5 @@ class Imgzip {
 }
 
 export default Imgzip
+
+
