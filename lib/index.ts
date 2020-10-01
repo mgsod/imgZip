@@ -1,0 +1,92 @@
+type compressOptions = {
+    height: number | undefined,
+    width: number | undefined,
+    quality: number | undefined
+}
+
+
+class Imgzip {
+    private options: compressOptions;
+
+    constructor(options: compressOptions) {
+        this.options = options
+    }
+
+    /**
+     * @param path 文件路径
+     * @param callback 图片压缩后执行的回调函数
+     */
+    canvasDataURL(path: string, callback: Function) {
+        let img = new Image();
+        img.src = path;
+        img.onload = (e) => {
+            let that = e.target as CanvasImageSource;
+            // 默认按比例压缩
+            let w: number = that.width as number,
+                h: number = that.height as number,
+                scale = w as number / h;
+            w = this.options.width || w;
+            h = this.options.height || (w / scale); //默认等比压缩
+            let quality = 0.7;  // 默认图片质量为0.7
+            //生成canvas
+            let canvas = document.createElement('canvas');
+            let ctx = canvas.getContext('2d');
+            // 创建属性节点
+            let anw: Attr = document.createAttribute("width");
+            anw.nodeValue = w.toString();
+            let anh: Attr = document.createAttribute("height");
+            anh.nodeValue = h.toString();
+            canvas.setAttributeNode(anw);
+            canvas.setAttributeNode(anh);
+
+            ctx?.drawImage(that, 0, 0, w, h);
+            // 图像质量
+            if (this.options.quality && this.options.quality <= 1 && this.options.quality > 0) {
+                quality = this.options.quality;
+            }
+            // quality值越小，所绘制出的图像越模糊
+            let base64 = canvas.toDataURL('image/jpeg', quality);
+            // 回调函数返回base64的值
+            callback && callback(base64);
+        }
+    }
+
+    /**
+     * @param file 文件对
+     * @param callback
+     */
+    photoCompress(file: Blob, callback: Function) {
+        let ready = new FileReader();
+        //开始读取指定的Blob对象或File对象中的内容.
+        //当读取操作完成时,readyState属性的值会成为DONE
+        // 如果设置了onloadend事件处理程序,则调用之.
+        //同时,result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容.
+        ready.readAsDataURL(file);
+        ready.onload = (event) => {
+            let imgFile = <FileReader>event.target;
+            let path = imgFile.result;
+            this.canvasDataURL(path as string, callback)
+        }
+    }
+
+    /**
+     * base64转blod流
+     * @param urlData
+     * @returns {Blob}
+     */
+    convertBase64UrlToBlob(urlData: string): Blob | undefined {
+        let arr = urlData.split(',');
+        let mime = arr[0].match(/:(.*?);/);
+        if (!mime) return;
+        let type = mime[1];
+        let bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new Blob([u8arr], {type});
+    }
+}
+
+export default {
+    a:1
+}

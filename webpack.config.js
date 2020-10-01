@@ -1,6 +1,6 @@
 const uglify = require('uglifyjs-webpack-plugin');
 module.exports = {
-    entry: './index.js',
+    entry: './dist/index.js',
     output: {
         filename: '../dist/index.min.js',
         libraryTarget: "umd",
@@ -14,6 +14,11 @@ module.exports = {
                     compress: false
                 }
             })
+        ]
+    },
+    module: {
+        rules: [
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
     },
 };
