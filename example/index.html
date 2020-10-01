@@ -18,18 +18,30 @@
         .img-box {
             display: flex;
             margin-top: 15px;
-        }
-
-        .img {
-            flex: 1;
-            padding: 2px;
-        }
-
-        .img img {
+            border: 1px solid #ccc;
+            min-height: 500px;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
+        }
+
+        .img-item {
+            flex: 1;
+            padding: 10px;
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+        }
+
+        .img-item:last-child {
+            border-left: 1px solid #ccc;
+        }
+
+        .img-item img {
+            width: 100%;
+            height: 520px;
             padding: 5px;
-            max-height: 500px;
-            object-fit: contain;
+            object-fit: scale-down;
         }
     </style>
 </head>
@@ -38,16 +50,22 @@
 <div class="box">
     <div>
         <input type="file" id="file">
-        <input type="number" placeholder="quality(0-1),default:0.7" id="quality">
+        <input type="number" placeholder="quality(0-1),default:0.7" id="quality"/>
 
         <input type="button" value="compress" id="compress">
     </div>
     <div class="img-box">
-        <div class="img">
-            before<img src="" id="before"/>
+        <div class="img-item">
+            <h3>before</h3>
+            <img id="before"
+                 src=""
+                 alt="">
         </div>
-        <div class="img">
-            after<img src="" id="after"/>
+        <div class="img-item">
+            <h3>after</h3>
+            <img id="after"
+                 src=""
+                 alt="">
         </div>
 
     </div>
@@ -56,9 +74,6 @@
 </body>
 
 <script>
-console.log(imgZip)
-new imgZip({quality: .5})
-
 let file,
     inputFile = document.getElementById('file'),
     buttonCompress = document.getElementById('compress'),
@@ -77,9 +92,11 @@ buttonCompress.onclick = function() {
 };
 
 function render() {
-    let imgZip = new Imgzip({quality: Number(quality.value)});
-    imgZip.photoCompress(file, function(base64) {
+    let compress = new imgZip({quality: Number(quality.value)});
+    console.log(compress);
+    compress.photoCompress(file, function(base64) {
         after.src = base64;
+        console.log(imgZip.convertBase64UrlToBlob(base64))
     });
     before.src = window.URL.createObjectURL(file);
 }

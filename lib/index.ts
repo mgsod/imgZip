@@ -1,13 +1,12 @@
 type compressOptions = {
-    height: number | undefined,
-    width: number | undefined,
-    quality: number | undefined
+    height?: number | undefined,
+    width?: number | undefined,
+    quality?: number | undefined
 }
 
 
 class Imgzip {
     private options: compressOptions;
-
     constructor(options: compressOptions) {
         this.options = options
     }
@@ -74,7 +73,7 @@ class Imgzip {
      * @param urlData
      * @returns {Blob}
      */
-    convertBase64UrlToBlob(urlData: string): Blob | undefined {
+    static convertBase64UrlToBlob(urlData: string): Blob | undefined {
         let arr = urlData.split(',');
         let mime = arr[0].match(/:(.*?);/);
         if (!mime) return;
@@ -87,6 +86,4 @@ class Imgzip {
     }
 }
 
-export default {
-    a:1
-}
+export default Imgzip

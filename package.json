@@ -1,14 +1,17 @@
 {
   "name": "imgzip",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "compress img",
   "main": "index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": " webpack --mode production",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "publish": "npm publish",
+    "version": "npm version prepatch",
+    "tsc & build": "tsc && npm run build"
   },
-  "libraryTarget": "umd",
   "keywords": [
     "compress",
     "img",
