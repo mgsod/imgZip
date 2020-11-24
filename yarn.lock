@@ -833,6 +833,13 @@
   resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
   integrity sha1-9MfsQ+gbMZqYFRFQMXCfJph4kfA=
 
+"@types/vue@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/@types/vue/download/@types/vue-2.0.0.tgz#ec77b3d89591deb9ca5cb052368aa9c32be088e7"
+  integrity sha1-7Hez2JWR3rnKXLBSNoqpwyvgiOc=
+  dependencies:
+    vue "*"
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.npm.taobao.org/@webassemblyjs/ast/download/@webassemblyjs/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
@@ -2176,6 +2183,20 @@ domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/domain-browser/download/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
   integrity sha1-PTH1AZGmdJ3RN1p/Ui6CPULlTto=
+
+drag-cell-resize@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npm.taobao.org/drag-cell-resize/download/drag-cell-resize-1.0.3.tgz#3621750bc1cbcd669385e9a83f186b41df122e6e"
+  integrity sha1-NiF1C8HLzWaThemoPxhrQd8SLm4=
+  dependencies:
+    "@babel/core" "^7.11.6"
+    "@babel/plugin-transform-modules-commonjs" "^7.10.4"
+    "@babel/preset-env" "^7.11.5"
+    "@types/vue" "^2.0.0"
+    babel-core "^6.26.3"
+    babel-loader "^8.1.0"
+    babel-preset-es2015 "^6.24.1"
+    webpack "^4.16.0"
 
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
@@ -4487,6 +4508,11 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz?cache=0&sync_timestamp=1589344261391&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvm-browserify%2Fdownload%2Fvm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
+
+vue@*:
+  version "2.6.12"
+  resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
+  integrity sha1-9evU+mvShpQD4pqJau1JBEVskSM=
 
 watchpack-chokidar2@^2.0.0:
   version "2.0.0"

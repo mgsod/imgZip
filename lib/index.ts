@@ -4,7 +4,6 @@ type compressOptions = {
     quality?: number | undefined
 }
 
-
 class Imgzip {
     private options: compressOptions;
 
@@ -32,10 +31,10 @@ class Imgzip {
         let img = new Image();
         img.src = path;
         img.onload = (e) => {
-            let that = e.target as CanvasImageSource;
+            let that = <CanvasImageSource>e.target;
             // 默认按比例压缩
-            let w: number = that.width as number,
-                h: number = that.height as number,
+            let w: number = <number>that.width,
+                h: number = <number>that.height,
                 scale = w as number / h;
             w = this.options.width || w;
             h = this.options.height || (w / scale); //默认等比压缩
@@ -71,7 +70,7 @@ class Imgzip {
         ready.onload = (event) => {
             let imgFile = <FileReader>event.target;
             let path = imgFile.result;
-            this.canvasDataURL(path as string, callback)
+            this.canvasDataURL(<string>path, callback)
         }
     }
 

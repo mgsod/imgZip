@@ -36,12 +36,11 @@ import imgzip from 'imgzip'
     mounted() {
       //监听选择文件
       document.getElementById('file').onchange = function () {
-	    // @2.x版本后采用class Api。所以需要new 一个imgZip对象
-	  	let compress = new imgzip({quality: 0.5});
+        // @2.x版本后采用class Api。所以需要new 一个imgZip对象
+        let compress = new imgzip({quality: 0.5});
         //调用图片压缩
         compress.photoCompress(this.files[0], function (base64) {
-          //document.getElementById('img').src = base64  //预览图片
-          
+          //document.getElementById('img').src = base64  //预览图片          
           //转blod流上传 convertBase64UrlToBlob函数为imgzip的静态函数
           let blod =  imgzip.convertBase64UrlToBlob(base64); 
           let formData = new FormData();

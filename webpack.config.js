@@ -1,10 +1,11 @@
 const uglify = require('uglifyjs-webpack-plugin');
 module.exports = {
-    entry: './index.js',
+    entry: './dist/index.js',
     output: {
         filename: '../dist/index.min.js',
         libraryTarget: "umd",
         library: "imgZip",
+        libraryExport: "default",
         umdNamedDefine: true,
     },
     optimization: {
