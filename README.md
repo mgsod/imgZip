@@ -30,26 +30,27 @@
 #### 2.x版本（支持ts）
 
 ```javascript
-import imgzip from 'imgzip'  
-  export default {
-    name: 'App',
-    mounted() {
-      //监听选择文件
-      document.getElementById('file').onchange = function () {
-        // @2.x版本后采用class Api。所以需要new 一个imgZip对象
-        let compress = new imgzip({quality: 0.5});
-        //调用图片压缩
-        compress.photoCompress(this.files[0], function (base64) {
-          //document.getElementById('img').src = base64  //预览图片          
-          //转blod流上传 convertBase64UrlToBlob函数为imgzip的静态函数
-          let blod =  imgzip.convertBase64UrlToBlob(base64); 
-          let formData = new FormData();
-          formData.append("file", blod, "file_"+Date.parse(new Date())+".jpg"); // 文件对象
-          //上传操作....
-        })
-      }
-    }
-  }
+import imgzip from "imgzip";
+
+export default {
+  name: "App",
+  mounted() {
+    // 监听选择文件
+    document.getElementById("file").onchange = function () {
+      // @2.x版本后采用 class Api。所以需要 new 一个 imgZip 对象
+      let compress = new imgzip({ quality: 0.5 });
+      // 调用图片压缩
+      compress.photoCompress(this.files[0], function (base64) {
+        // document.getElementById('img').src = base64  //预览图片
+        // 转 blob 流上传 convertBase64UrlToBlob函数为 imgzip 的静态函数
+        let blob = imgzip.convertBase64UrlToBlob(base64);
+        let formData = new FormData();
+        formData.append("file", blob, "file_" + Date.parse(new Date()) + ".jpg"); // 文件对象
+        // 上传操作....
+      });
+    };
+  },
+};
 ```
 ### 函数说明
 
@@ -79,24 +80,25 @@ import imgzip from 'imgzip'
 #### 1.x版本(不支持ts)
 
 ```javascript
-import imgzip from 'imgzip'  
-  export default {
-    name: 'App',
-    mounted() {
-      //监听选择文件
-      document.getElementById('file').onchange = function () {
-        //调用图片压缩
-        imgzip.photoCompress(this.files[0], {}, function (base64) {
-          //document.getElementById('img').src = base64  //预览图片          
-          //转blod流上传
-          let blod =  imgzip.convertBase64UrlToBlob(base64); 
-          let formData = new FormData();
-          formData.append("file", blod, "file_"+Date.parse(new Date())+".jpg"); // 文件对象
-          //上传操作....
-        })
-      }
-    }
-  }
+import imgzip from "imgzip";
+
+export default {
+  name: "App",
+  mounted() {
+    // 监听选择文件
+    document.getElementById("file").onchange = function () {
+      // 调用图片压缩
+      imgzip.photoCompress(this.files[0], {}, function (base64) {
+        // document.getElementById('img').src = base64  //预览图片
+        // 转 blob 流上传
+        let blob = imgzip.convertBase64UrlToBlob(base64);
+        let formData = new FormData();
+        formData.append("file", blob, "file_" + Date.parse(new Date()) + ".jpg"); // 文件对象
+        // 上传操作....
+      });
+    };
+  },
+};
 ```
 ### 函数说明
 * photoCompress(图片压缩函数) 
