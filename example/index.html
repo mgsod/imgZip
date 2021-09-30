@@ -74,30 +74,30 @@
 </body>
 
 <script>
-let file,
-    inputFile = document.getElementById('file'),
-    buttonCompress = document.getElementById('compress'),
-    after = document.getElementById('after'),
-    before = document.getElementById('before'),
-    quality = document.getElementById('quality');
+    let file,
+        inputFile = document.getElementById('file'),
+        buttonCompress = document.getElementById('compress'),
+        after = document.getElementById('after'),
+        before = document.getElementById('before'),
+        quality = document.getElementById('quality');
 
-inputFile.onchange = function(e) {
-    file = this.files[0];
-    this.value = '';
-    render();
+    inputFile.onchange = function (e) {
+        file = this.files[0];
+        this.value = '';
+        render();
 
-};
-buttonCompress.onclick = function() {
-    render();
-};
+    };
+    buttonCompress.onclick = function () {
+        render();
+    };
 
-function render() {
-    let compress = new imgZip({quality: Number(quality.value)});
-    compress.photoCompress(file, function(base64) {
-        after.src = base64;
-    });
-    before.src = window.URL.createObjectURL(file);
-}
+    function render() {
+        let compress = new imgZip({quality: Number(quality.value)});
+        compress.photoCompress(file, function (base64) {
+            after.src = base64;
+        });
+        before.src = window.URL.createObjectURL(file);
+    }
 
 </script>
 </html>

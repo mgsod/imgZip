@@ -1,12 +1,10 @@
-type compressOptions = {
-    height?: number | undefined,
-    width?: number | undefined,
-    quality?: number | undefined
+interface compressOptions {
+    height?: number;
+    width?: number;
+    quality?: number;
 }
-
 class Imgzip {
     private options: compressOptions;
-
     constructor(options?: compressOptions) {
         if (options) {
             let {quality = 0.7, width, height} = options;
@@ -20,7 +18,6 @@ class Imgzip {
                 quality: 0.7
             }
         }
-
     }
 
     /**

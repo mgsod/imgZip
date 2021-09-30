@@ -1,8 +1,8 @@
-declare type compressOptions = {
-    height?: number | undefined;
-    width?: number | undefined;
-    quality?: number | undefined;
-};
+interface compressOptions {
+    height?: number;
+    width?: number;
+    quality?: number;
+}
 declare class Imgzip {
     private options;
     constructor(options?: compressOptions);
