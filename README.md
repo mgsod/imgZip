@@ -119,4 +119,13 @@ export default {
 | base64 | 图片base64编码 | 是 |  - | Blod |
 
 
+## 致谢
+感谢[JetBrains](https://www.jetbrains.com)提供的开源License
+
+![JetBrains Logo (Main) logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)
+
+[https://jb.gg/OpenSourceSupport](https://jb.gg/OpenSourceSupport)
+
+
+
 
